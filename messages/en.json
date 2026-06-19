@@ -8,6 +8,11 @@
     },
     "getApp": "Get MealLoop"
   },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "uk": "Ukrainian"
+  },
   "hero": {
     "badge": "For small households",
     "headline": "Plan a week of meals from the dishes you already cook.",

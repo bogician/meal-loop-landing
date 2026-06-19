@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Logo } from "@/components/logo";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Link } from "@/i18n/navigation";
 import { NAV_LINKS, APP_STORE_URL } from "@/lib/site";
 
@@ -22,12 +23,15 @@ export async function Nav() {
             </a>
           ))}
         </div>
-        <a
-          href={APP_STORE_URL}
-          className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
-        >
-          {t("getApp")}
-        </a>
+        <div className="flex items-center gap-3">
+          <LocaleSwitcher />
+          <a
+            href={APP_STORE_URL}
+            className="hidden rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90 sm:inline-flex"
+          >
+            {t("getApp")}
+          </a>
+        </div>
       </nav>
     </header>
   );

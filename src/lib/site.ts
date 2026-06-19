@@ -5,6 +5,15 @@
 export const LOCALES = ["en", "uk"] as const;
 export const DEFAULT_LOCALE: (typeof LOCALES)[number] = "en";
 
+// Fixed visible abbreviations for the locale switcher — shown identically on
+// every surface (a /uk visitor still sees "EN" for the English option). These
+// are locale-code labels, not translatable copy, so they live here with LOCALES
+// rather than being duplicated across both message catalogs.
+export const LOCALE_LABELS: Record<(typeof LOCALES)[number], string> = {
+  en: "EN",
+  uk: "УК",
+};
+
 // Canonical absolute origin, single-sourced for metadataBase (and later
 // sitemap/robots/OG in Epic 3). Overridable via env on Vercel previews; falls
 // back to the production domain. No other module should hardcode an origin.
