@@ -1,5 +1,5 @@
 # generated: 2026-06-19
-# last_updated: 2026-06-19
+# last_updated: 2026-06-19 (1-2 → done, code review)
 # project: MealLoop Marketing Site — v2
 # project_key: NOKEY
 # tracking_system: file-system
@@ -45,7 +45,7 @@ development_status:
   # Epic 1: Bilingual Foundation
   epic-1: in-progress
   1-1-i18n-scaffolding-localized-route-shell: done
-  1-2-first-visit-detection-persisted-preference: backlog
+  1-2-first-visit-detection-persisted-preference: done
   1-3-externalize-all-copy-to-the-english-catalog: backlog
   1-4-ukrainian-catalog-cyrillic-typography: backlog
   1-5-locale-switcher: backlog
