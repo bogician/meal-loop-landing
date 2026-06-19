@@ -1,0 +1,89 @@
+# generated: 2026-06-19
+# last_updated: 2026-06-19
+# project: MealLoop Marketing Site — v2
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: docs/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-06-19
+last_updated: 2026-06-19
+project: MealLoop Marketing Site — v2
+project_key: NOKEY
+tracking_system: file-system
+story_location: docs/implementation-artifacts
+
+development_status:
+  # Epic 1: Bilingual Foundation
+  epic-1: in-progress
+  1-1-i18n-scaffolding-localized-route-shell: done
+  1-2-first-visit-detection-persisted-preference: backlog
+  1-3-externalize-all-copy-to-the-english-catalog: backlog
+  1-4-ukrainian-catalog-cyrillic-typography: backlog
+  1-5-locale-switcher: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Brand Identity & Assets
+  epic-2: backlog
+  2-1-real-brand-mark-in-nav-footer: backlog
+  2-2-favicon-app-icon-set: backlog
+  2-3-og-social-share-image: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: SEO & Discoverability
+  epic-3: backlog
+  3-1-semantic-heading-structure-landmarks: backlog
+  3-2-per-locale-metadata-canonical-hreflang: backlog
+  3-3-locale-aware-sitemap-robots: backlog
+  3-4-structured-data-json-ld: backlog
+  3-5-social-cards-og-metadata: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Mobile Experience & Responsive QA
+  epic-4: backlog
+  4-1-mobile-navigation-menu: backlog
+  4-2-responsive-integrity-motion-safety-to-the-320px-floor: backlog
+  4-3-touch-targets-mobile-type-scale-focus-indicators: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Legal Pages & Trust
+  epic-5: backlog
+  5-1-privacy-terms-cookie-pages-per-locale: backlog
+  5-2-resolved-footer-legal-links-sitemap-entries: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Conversion, Analytics & Consent
+  epic-6: backlog
+  6-1-cookieless-analytics-speed-insights: backlog
+  6-2-single-source-app-store-cta-coming-soon-state: backlog
+  6-3-locale-switch-event-tracking: backlog
+  6-4-posture-only-consent-banner: backlog
+  epic-6-retrospective: optional

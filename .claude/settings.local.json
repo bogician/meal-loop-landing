@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 *)",
+      "Bash(find . -iname '*proxy*' -o -iname '*middleware*')",
+      "Bash(grep -rl \"next-intl middleware\\\\|middleware\" ./02-guides/internationalization.md)",
+      "Bash(sort -t- -k2 -n -u)",
+      "Bash(echo \"---EXIT: $?---\")",
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(node -e \"const p=require\\('./package.json'\\); console.log\\('next-intl:', p.dependencies['next-intl']\\); console.log\\('@vercel/analytics:', p.dependencies['@vercel/analytics']\\); console.log\\('@vercel/speed-insights:', p.dependencies['@vercel/speed-insights']\\);\")",
+      "Bash(node -e \"process.stdin.on\\('data',d=>{const j=JSON.parse\\(d\\);console.log\\('next-intl installed:', j.version\\)}\\)\")",
+      "Bash(node -e \"const p=require\\('./node_modules/next-intl/package.json'\\); console.log\\(Object.keys\\(p.exports||{}\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(awk '/## Static Rendering/,/## [^S]/' node_modules/next/dist/docs/01-app/02-guides/internationalization.md)",
+      "Bash(mkdir -p 'src/app/[locale]')",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(npm run *)",
+      "Bash(npm start *)",
+      "Bash(echo \"started, pid $!\")",
+      "Read(//private/tmp/**)",
+      "Bash(lsof -nP -iTCP:3000 -sTCP:LISTEN)",
+      "Bash(curl -sI http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/en)",
+      "Bash(curl -s http://localhost:3000/uk)",
+      "Bash(echo \"=== exit: $? ===\")",
+      "Bash(kill 88678)",
+      "Bash(pkill -f \"next start\")",
+      "Bash(git -C /Users/bogdanbakhmetyev/Projects/SideProjects/mealloop-web branch --show-current)",
+      "Bash(git -C /Users/bogdanbakhmetyev/Projects/SideProjects/mealloop-web rev-parse --short HEAD)",
+      "Bash(ls -la bmad-review-adversarial-general/)",
+      "Bash(ls -la bmad-review-edge-case-hunter/)",
+      "Bash(git add *)"
+    ]
+  }
+}

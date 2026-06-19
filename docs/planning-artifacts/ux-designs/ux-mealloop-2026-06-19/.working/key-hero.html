@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MealLoop — Hero (key screen)</title>
+<style>
+/*
+  KEY SCREEN: Hero (mobile, ~390px) + Coming-soon CTA state.
+  Governed by: DESIGN.md → Colors, Typography (display/lead/caption), Components (button-primary, app-store-cta).
+               EXPERIENCE.md → IA (Hero, Nav), State Patterns (App Store not live), Voice and Tone, Flow 1/2.
+  Tokens mirrored from src/app/globals.css (light). Production font is Outfit; system stack used here (offline).
+  Spine wins on conflict.
+*/
+:root{
+  --paper:#F5F4F1; --ink:#1A1918; --card:#FFFFFF;
+  --brand:#2E7D4F; --brand-fg:#FFFFFF; --warm:#D89575;
+  --mint:#C8F0D8; --mint-fg:#1F3D2C; --muted:#EDECEA;
+  --muted-fg:#6D6C6A; --border:#E5E4E1; --ring:#2E7D4F;
+  --r-md:0.7rem; --r-lg:.875rem; --r-xl:1.225rem; --r-2xl:1.575rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9d8d4;font-family:"Outfit",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;justify-content:center;padding:32px 16px;color:var(--ink)}
+.phone{width:390px;background:var(--paper);border-radius:36px;border:10px solid #111;
+  overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.screen{padding:0 20px 36px}
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;height:60px;padding-top:8px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:20px;letter-spacing:-.01em}
+.loop{width:26px;height:26px;color:var(--brand)}
+.burger{width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:0;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--ink)}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+/* hero */
+.hero{padding-top:24px}
+h1{font-size:38px;line-height:1.05;letter-spacing:-.02em;font-weight:600;margin-bottom:18px}
+.lead{font-size:19px;line-height:1.5;color:var(--muted-fg);margin-bottom:28px;max-width:32ch}
+.cta{display:inline-flex;flex-direction:column;gap:8px;align-items:flex-start}
+/* App Store badge, non-interactive (Coming-soon) */
+.badge{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;
+  padding:10px 18px;border-radius:var(--r-md);min-height:44px;opacity:.92}
+.badge .apple{font-size:22px;line-height:1}
+.badge small{display:block;font-size:11px;opacity:.8}
+.badge b{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.caption{font-size:14px;color:var(--muted-fg)}
+/* device mockup peek */
+.mock{margin-top:34px;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-2xl);padding:16px;box-shadow:0 2px 0 var(--border)}
+.mock .mh{font-size:13px;color:var(--muted-fg);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--border)}
+.row:first-of-type{border-top:0}
+.chip{width:34px;height:34px;border-radius:10px;background:var(--mint);flex:0 0 auto}
+.chip.w{background:var(--warm)}
+.row .t{font-size:15px}
+.row .s{font-size:13px;color:var(--muted-fg)}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="screen">
+    <nav>
+      <span class="brand">
+        <svg class="loop" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3M19.5 12a7.5 7.5 0 0 1-12.8 5.3" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+          <path d="M17.8 3.3v3.6h-3.6M6.2 20.7v-3.6h3.6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        MealLoop
+      </span>
+      <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </nav>
+
+    <section class="hero">
+      <h1>Plan a week of meals from the dishes you already cook.</h1>
+      <p class="lead">A calm weekly meal planner for small households. Plan the week, and the grocery list writes itself.</p>
+
+      <div class="cta">
+        <!-- Coming-soon state: badge is NON-interactive (not an <a href="#">). role=img with status in the name; not in tab order. -->
+        <span class="badge" role="img" aria-label="Download on the App Store — coming soon">
+          <span class="apple">&#63743;</span>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </span>
+        <span class="caption">Coming soon to the App Store</span>
+      </div>
+
+      <div class="mock" aria-hidden="true">
+        <div class="mh">Groceries</div>
+        <div class="row"><span class="chip"></span><span><div class="t">Produce</div><div class="s">Tomatoes, basil, garlic</div></span></div>
+        <div class="row"><span class="chip w"></span><span><div class="t">Pantry</div><div class="s">Olive oil, pasta</div></span></div>
+        <div class="row"><span class="chip"></span><span><div class="t">Dairy</div><div class="s">Parmesan, butter</div></span></div>
+      </div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

@@ -64,7 +64,7 @@
   --card-foreground: #1a1918;
   --popover: #ffffff;
   --popover-foreground: #1a1918;
-  --primary: #3d8a5a;
+  --primary: #2E7D4F;
   --primary-foreground: #ffffff;
   --secondary: #edecea;
   --secondary-foreground: #1a1918;
@@ -75,8 +75,8 @@
   --destructive: #d08068;
   --border: #e5e4e1;
   --input: #e5e4e1;
-  --ring: #3d8a5a;
-  --chart-1: #3d8a5a;
+  --ring: #2E7D4F;
+  --chart-1: #2E7D4F;
   --chart-2: #d89575;
   --chart-3: #4d9b6a;
   --chart-4: #d4a64a;
@@ -84,7 +84,7 @@
   --radius: 0.875rem;
 
   /* Brand */
-  --brand: #3d8a5a;
+  --brand: #2E7D4F;
   --brand-foreground: #ffffff;
   --warm: #d89575;
   --warm-foreground: #1a1918;
@@ -93,12 +93,12 @@
 
   --sidebar: #fafaf8;
   --sidebar-foreground: #1a1918;
-  --sidebar-primary: #3d8a5a;
+  --sidebar-primary: #2E7D4F;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #edecea;
   --sidebar-accent-foreground: #1a1918;
   --sidebar-border: #e5e4e1;
-  --sidebar-ring: #3d8a5a;
+  --sidebar-ring: #2E7D4F;
 }
 
 /* MealLoop — warm dark (accent retained, terracotta brightened). */

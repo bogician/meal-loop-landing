@@ -1,4 +1,5 @@
 import { Logo } from "@/components/logo";
+import { Link } from "@/i18n/navigation";
 import { SITE } from "@/lib/site";
 
 export function Footer() {
@@ -6,7 +7,9 @@ export function Footer() {
     <footer className="mt-auto border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-12 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <Logo />
+          <Link href="/" aria-label="MealLoop home" className="inline-flex">
+            <Logo />
+          </Link>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             {SITE.tagline}
           </p>

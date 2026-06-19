@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MealLoop — Mobile menu overlay (key screen)</title>
+<style>
+/*
+  KEY SCREEN: Full-screen mobile navigation overlay (open state).
+  Governed by: DESIGN.md → Components (mobile-menu-overlay, locale-switcher), Typography (subheading, label).
+               EXPERIENCE.md → Component Patterns (Mobile-menu overlay, Locale switcher),
+               Interaction Primitives, Accessibility Floor (focus trap, Esc, return focus, 44px targets).
+  Opaque --paper panel (NOT a translucent scrim). Tokens from globals.css (light). Spine wins on conflict.
+*/
+:root{
+  --paper:#F5F4F1; --ink:#1A1918; --brand:#2E7D4F; --muted-fg:#6D6C6A;
+  --border:#E5E4E1; --brand-fg:#FFFFFF; --r-md:0.7rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9d8d4;font-family:"Outfit",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;justify-content:center;padding:32px 16px;color:var(--ink)}
+.phone{width:390px;height:780px;background:var(--paper);border-radius:36px;border:10px solid #111;
+  overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25);position:relative}
+/* overlay fills the whole viewport, opaque */
+.overlay{position:absolute;inset:0;background:var(--paper);display:flex;flex-direction:column;padding:20px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px;padding-top:8px}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:20px;letter-spacing:-.01em}
+.loop{width:26px;height:26px;color:var(--brand)}
+.close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;background:transparent;
+  font-size:26px;line-height:1;cursor:pointer;color:var(--ink)}
+.links{margin-top:24px;display:flex;flex-direction:column}
+.links a{display:flex;align-items:center;min-height:56px;font-size:20px;font-weight:600;
+  letter-spacing:-.01em;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border)}
+.spacer{flex:1}
+.cta-badge{display:inline-flex;align-items:center;gap:10px;background:#111;color:#fff;padding:12px 18px;
+  border-radius:var(--r-md);min-height:48px;align-self:flex-start}
+.cta-badge .apple{font-size:22px}.cta-badge small{display:block;font-size:11px;opacity:.8}.cta-badge b{font-size:17px;font-weight:600}
+.caption{font-size:14px;color:var(--muted-fg);margin:8px 0 22px}
+/* inline EN · УК locale toggle — each label a >=44px target */
+.locale{display:inline-flex;align-items:center;gap:0;border:1px solid var(--border);border-radius:var(--r-md);
+  overflow:hidden;align-self:flex-start}
+.locale a{min-width:56px;min-height:44px;display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:500;text-decoration:none;color:var(--muted-fg)}
+.locale a[aria-current="true"]{color:var(--brand);font-weight:600;background:#fff}
+.locale .sep{width:1px;height:24px;background:var(--border)}
+.note{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:11px;color:#a3a29f}
+</style>
+</head>
+<body>
+<div class="phone">
+  <!-- role="dialog" aria-modal; focus trapped here; Esc or ✕ closes and returns focus to the hamburger -->
+  <div class="overlay" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="bar">
+      <span class="brand">
+        <svg class="loop" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4.5 12a7.5 7.5 0 0 1 12.8-5.3M19.5 12a7.5 7.5 0 0 1-12.8 5.3" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+          <path d="M17.8 3.3v3.6h-3.6M6.2 20.7v-3.6h3.6" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        MealLoop
+      </span>
+      <button class="close" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="links" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#loop">The loop</a>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <span class="cta-badge" role="img" aria-label="Download on the App Store — coming soon">
+      <span class="apple">&#63743;</span><span><small>Download on the</small><b>App Store</b></span>
+    </span>
+    <span class="caption">Coming soon to the App Store</span>
+
+    <div class="locale" role="group" aria-label="Language">
+      <a href="/en" aria-current="true">EN</a><span class="sep"></span><a href="/uk">УК</a>
+    </div>
+
+    <div class="note">Opaque full-screen overlay · focus trapped · Esc / ✕ returns focus to hamburger</div>
+  </div>
+</div>
+</body>
+</html>
