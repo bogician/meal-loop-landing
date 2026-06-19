@@ -1,1 +1,98 @@
-{}
+{
+  "nav": {
+    "home": "MealLoop home",
+    "links": {
+      "howItWorks": "How it works",
+      "features": "Features",
+      "loop": "The loop"
+    },
+    "getApp": "Get MealLoop"
+  },
+  "hero": {
+    "badge": "For small households",
+    "headline": "Plan a week of meals from the dishes you already cook.",
+    "description": "A calm weekly meal planner for small households. Build a library of the dishes you actually cook, plan the week, and let the grocery list write itself.",
+    "seeHowItWorks": "See how it works",
+    "availability": "On iPhone, iOS 17 and later."
+  },
+  "howItWorks": {
+    "heading": "Three steps, then it mostly runs itself.",
+    "steps": {
+      "library": {
+        "title": "Build your library",
+        "body": "Add the dishes you already cook, with their ingredients. It grows a little each week."
+      },
+      "plan": {
+        "title": "Plan the week",
+        "body": "Assign dishes to days. Reuse last week, or duplicate a week that worked well."
+      },
+      "shop": {
+        "title": "Shop the list",
+        "body": "Your groceries arrive grouped by category and ready. Tick items off as you shop."
+      }
+    }
+  },
+  "features": {
+    "heading": "Everything the weekly shop needs, and nothing it does not.",
+    "lead": "MealLoop is built around one quiet loop: the dishes you cook, the week you plan, the list you shop.",
+    "items": {
+      "library": {
+        "title": "Your dish library",
+        "body": "Keep every meal you cook in one place, with its ingredients attached. No more starting from a blank page each week."
+      },
+      "plan": {
+        "title": "A simple weekly plan",
+        "body": "Drop dishes into a seven-day grid. Breakfast, lunch, dinner — plan as much or as little as you like."
+      },
+      "groceries": {
+        "title": "Groceries that write themselves",
+        "body": "Every dish you plan adds its ingredients to one grouped shopping list. Check things off as you shop."
+      },
+      "photo": {
+        "title": "Add a dish from a photo",
+        "body": "Photograph a meal and MealLoop drafts the dish and its ingredients. You review and save in seconds."
+      }
+    }
+  },
+  "loop": {
+    "heading": "A week that comes back around.",
+    "body": "Most weeks you cook the same handful of meals. MealLoop remembers them, so planning the next week takes minutes instead of a fresh start. Duplicate a week you liked and adjust from there.",
+    "nodes": {
+      "cook": "Cook",
+      "plan": "Plan",
+      "shop": "Shop",
+      "repeat": "Repeat"
+    }
+  },
+  "screenshots": {
+    "heading": "See it in your hand.",
+    "lead": "The same quiet design across every screen, from the library to the list you carry to the shop.",
+    "captions": {
+      "library": "Your dishes, with ingredients attached.",
+      "planner": "A calm, seven-day plan.",
+      "groceries": "One grouped list, ready to shop."
+    }
+  },
+  "cta": {
+    "heading": "Cook the week with a little less friction.",
+    "body": "Build your library once, then let the plan and the grocery list follow from it.",
+    "availability": "On iPhone, iOS 17 and later."
+  },
+  "footer": {
+    "tagline": "Plan a week of meals from the dishes you already cook.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "copyright": "© 2026 MealLoop. All rights reserved."
+  },
+  "appStore": {
+    "label": "Download MealLoop on the App Store",
+    "badgePrefix": "Download on the",
+    "badgeName": "App Store"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you’re looking for doesn’t exist or has moved.",
+    "backHome": "Back home"
+  }
+}

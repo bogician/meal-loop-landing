@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/motion";
 import { AppStoreButton } from "@/components/app-store-button";
 import { DeviceMockup } from "@/components/device-mockup";
 import { PlannerScreen } from "@/components/screens";
-import { SITE } from "@/lib/site";
 
 export function Hero() {
+  const t = useTranslations("hero");
   return (
     <section id="top" className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -18,17 +19,17 @@ export function Hero() {
         <div>
           <FadeIn>
             <span className="inline-flex items-center rounded-full bg-mint px-3 py-1 text-xs font-medium text-accent-foreground">
-              For small households
+              {t("badge")}
             </span>
           </FadeIn>
           <FadeIn delay={0.05}>
             <h1 className="mt-5 font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Plan a week of meals from the dishes you already cook.
+              {t("headline")}
             </h1>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="mt-5 max-w-md text-lg text-muted-foreground">
-              {SITE.description}
+              {t("description")}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -38,11 +39,11 @@ export function Hero() {
                 href="#how-it-works"
                 className="text-sm font-medium text-foreground underline-offset-4 hover:underline"
               >
-                See how it works
+                {t("seeHowItWorks")}
               </a>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              On iPhone, iOS 17 and later.
+              {t("availability")}
             </p>
           </FadeIn>
         </div>

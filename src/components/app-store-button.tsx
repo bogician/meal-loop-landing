@@ -1,11 +1,13 @@
+import { useTranslations } from "next-intl";
 import { APP_STORE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function AppStoreButton({ className }: { className?: string }) {
+  const t = useTranslations("appStore");
   return (
     <a
       href={APP_STORE_URL}
-      aria-label="Download MealLoop on the App Store"
+      aria-label={t("label")}
       className={cn(
         "inline-flex items-center gap-3 rounded-xl bg-foreground px-5 py-3 text-background transition-opacity hover:opacity-90",
         className,
@@ -21,9 +23,11 @@ export function AppStoreButton({ className }: { className?: string }) {
       </svg>
       <span className="flex flex-col text-left leading-none">
         <span className="text-[0.65rem] font-normal opacity-80">
-          Download on the
+          {t("badgePrefix")}
         </span>
-        <span className="text-lg font-semibold leading-tight">App Store</span>
+        <span className="text-lg font-semibold leading-tight">
+          {t("badgeName")}
+        </span>
       </span>
     </a>
   );
