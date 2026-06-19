@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 // Mock MealLoop screens rendered in HTML/CSS for the device frames.
-// Faithful to the app's patterns (Outfit display header, green circular
+// Faithful to the app's patterns (Manrope display header, green circular
 // action, boxed fields, grouped lists). Swap for real screenshots later.
 
 function StatusBar() {

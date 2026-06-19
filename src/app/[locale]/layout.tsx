@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -8,9 +8,9 @@ import "../globals.css";
 import { routing } from "@/i18n/routing";
 import { SITE_ORIGIN } from "@/lib/site";
 
-const outfit = Outfit({
+const manrope = Manrope({
   variable: "--font-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${outfit.variable} h-full antialiased`}>
+    <html lang={locale} className={`${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
