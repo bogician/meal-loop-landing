@@ -1,18 +1,6 @@
-import { cn } from "@/lib/utils";
-import { SITE } from "@/lib/site";
-
-// The real MealLoop brand mark, adapted (not redrawn) from the locked iOS source
-// `brand-logo.svg`. Single-color and tintable: `currentColor` inherits from
-// `text-brand`, so the `.dark` token variant recolors it automatically.
-export function BrandMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 2048 2048"
-      className={cn("h-7 w-7 text-brand", className)}
-      aria-hidden
-    >
-      <g transform="translate(0,2048) scale(0.1,-0.1)" fill="currentColor" stroke="none">
-        <path d="M9761 16464 c-514 -40 -964 -132 -1481 -303 -656 -218 -1219 -515
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+<g transform="translate(0,2048) scale(0.1,-0.1)" fill="currentColor" stroke="none">
+<path d="M9761 16464 c-514 -40 -964 -132 -1481 -303 -656 -218 -1219 -515
 -1810 -957 -273 -205 -644 -547 -864 -798 -547 -623 -964 -1322 -1224 -2051
 -110 -310 -142 -420 -142 -492 1 -119 55 -208 157 -255 57 -27 72 -30 128 -26
 144 12 213 81 270 266 181 590 389 1044 689 1502 243 369 468 642 802 970 279
@@ -27,7 +15,7 @@ export function BrandMark({ className }: { className?: string }) {
 -27 85 -31 444 -136 944 -306 1452 -88 266 -121 348 -250 625 -327 703 -713
 1251 -1264 1800 -784 779 -1713 1317 -2772 1604 -400 109 -782 174 -1182 201
 -208 14 -698 11 -911 -6z"/>
-        <path d="M10070 14875 c-187 -42 -325 -118 -460 -254 -110 -111 -176 -215
+<path d="M10070 14875 c-187 -42 -325 -118 -460 -254 -110 -111 -176 -215
 -222 -348 -28 -79 -31 -104 -35 -233 -3 -101 0 -167 10 -218 10 -53 11 -75 3
 -78 -6 -2 -79 -19 -161 -38 -397 -90 -723 -209 -1105 -402 -817 -412 -1482
 -1032 -1945 -1814 -213 -361 -376 -742 -496 -1165 -86 -305 -98 -450 -49 -620
@@ -67,18 +55,5 @@ m5790 -5872 c0 -3 -28 -47 -62 -98 -362 -539 -867 -1069 -1403 -1473 -527
 -1958 255 -566 188 -1074 444 -1562 790 -296 209 -695 563 -956 846 -170 185
 -213 237 -389 465 l-123 160 54 7 c30 3 1967 6 4305 7 4628 1 4406 -2 4690 56
 120 24 325 82 387 109 36 16 47 18 47 11z"/>
-      </g>
-    </svg>
-  );
-}
-
-export function Logo({ className }: { className?: string }) {
-  return (
-    <span className={cn("inline-flex items-center gap-2", className)}>
-      <BrandMark />
-      <span className="text-xl font-semibold tracking-tight text-foreground">
-        {SITE.name}
-      </span>
-    </span>
-  );
-}
+</g>
+</svg>

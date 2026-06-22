@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/motion";
-import { LoopMark } from "@/components/logo";
+import { BrandMark } from "@/components/logo";
 
 const NODES = ["cook", "plan", "shop", "repeat"] as const;
 
@@ -26,7 +26,7 @@ export function Loop() {
               transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             />
             <div className="flex h-28 w-28 items-center justify-center rounded-full bg-mint">
-              <LoopMark className="h-12 w-12" />
+              <BrandMark className="h-12 w-12" />
             </div>
             {NODES.map((node, i) => {
               const angle = (i / NODES.length) * 2 * Math.PI - Math.PI / 2;
