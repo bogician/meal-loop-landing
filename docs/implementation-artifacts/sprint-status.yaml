@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-06-19
-last_updated: 2026-06-22 (2-2 → done, code-review)
+last_updated: 2026-06-22 (2-3 → done, code-review)
 project: MealLoop Marketing Site — v2
 project_key: NOKEY
 tracking_system: file-system
@@ -55,7 +55,7 @@ development_status:
   epic-2: in-progress
   2-1-real-brand-mark-in-nav-footer: done
   2-2-favicon-app-icon-set: done
-  2-3-og-social-share-image: backlog
+  2-3-og-social-share-image: done
   epic-2-retrospective: optional
 
   # Epic 3: SEO & Discoverability
