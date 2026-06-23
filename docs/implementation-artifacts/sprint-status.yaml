@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-06-19
-last_updated: 2026-06-23 (3-3 → done, code-review)
+last_updated: 2026-06-23 (3-4 → done, code-review)
 project: MealLoop Marketing Site — v2
 project_key: NOKEY
 tracking_system: file-system
@@ -63,7 +63,7 @@ development_status:
   3-1-semantic-heading-structure-landmarks: done
   3-2-per-locale-metadata-canonical-hreflang: done
   3-3-locale-aware-sitemap-robots: done
-  3-4-structured-data-json-ld: backlog
+  3-4-structured-data-json-ld: done
   3-5-social-cards-og-metadata: backlog
   epic-3-retrospective: optional
 

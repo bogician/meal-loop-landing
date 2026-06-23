@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { DEFAULT_LOCALE, localeUrl } from "@/lib/site";
+import { buildStructuredData } from "@/lib/structured-data";
 import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
 import { HowItWorks } from "@/components/sections/how-it-works";
@@ -45,8 +46,22 @@ export default async function Home({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Reuse the localized metadata.description (Story 3.2) as the single product
+  // summary — no new catalog namespace, en/uk key trees stay identical (AR-15).
+  const t = await getTranslations({ locale, namespace: "metadata" });
+  const jsonLd = buildStructuredData({ locale, description: t("description") });
+
   return (
     <>
+      {/* JSON-LD (FR-9): one script, payload from the single typed builder. The
+          .replace scrub escapes "<" per the bundled Next json-ld guide so the
+          payload cannot break out of the <script> element. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Nav />
       <main className="flex-1">
         <Hero />
