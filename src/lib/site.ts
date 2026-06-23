@@ -20,6 +20,11 @@ export const LOCALE_LABELS: Record<(typeof LOCALES)[number], string> = {
 export const SITE_ORIGIN =
   process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://meal-loop.com";
 
+// Absolute per-locale URL, single-sourced for canonical/hreflang (Story 3.2)
+// and the sitemap/robots (Story 3.3). localePrefix is "always", so every
+// locale page lives at /{locale} — never hardcode an absolute URL elsewhere.
+export const localeUrl = (locale: string): string => `${SITE_ORIGIN}/${locale}`;
+
 // MealLoop is not on the App Store yet. When the listing is live, replace this
 // single value with the real product URL and every App Store button updates.
 export const APP_STORE_URL = "#";

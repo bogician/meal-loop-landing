@@ -1,4 +1,8 @@
 {
+  "metadata": {
+    "title": "MealLoop — Plan a week of meals from the dishes you already cook",
+    "description": "A calm weekly meal planner for small households. Build a library of the dishes you cook, plan the week, and the grocery list writes itself."
+  },
   "nav": {
     "home": "MealLoop home",
     "label": "Main",
