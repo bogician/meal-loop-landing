@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "MealLoop home",
+    "label": "Main",
     "links": {
       "howItWorks": "How it works",
       "features": "Features",

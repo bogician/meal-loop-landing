@@ -30,9 +30,9 @@ function ScreenHeader({
   return (
     <div className="flex items-start justify-between px-5 pb-3 pt-3">
       <div>
-        <h3 className="font-heading text-[1.6rem] font-bold leading-none tracking-tight text-foreground">
+        <p className="font-heading text-[1.6rem] font-bold leading-none tracking-tight text-foreground">
           {title}
-        </h3>
+        </p>
         {subtitle ? (
           <p className="mt-1 text-[0.7rem] text-muted-foreground">{subtitle}</p>
         ) : null}

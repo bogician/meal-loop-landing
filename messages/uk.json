@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Головна MealLoop",
+    "label": "Основна",
     "links": {
       "howItWorks": "Як це працює",
       "features": "Можливості",

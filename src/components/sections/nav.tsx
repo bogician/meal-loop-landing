@@ -8,7 +8,10 @@ export async function Nav() {
   const t = await getTranslations("nav");
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+      <nav
+        aria-label={t("label")}
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5"
+      >
         <Link href="/" aria-label={t("home")}>
           <Logo />
         </Link>

@@ -19,7 +19,10 @@ export function Loop() {
           <p className="mt-4 text-lg text-muted-foreground">{t("body")}</p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <div className="relative mx-auto flex h-72 w-72 items-center justify-center">
+          <div
+            aria-hidden
+            className="relative mx-auto flex h-72 w-72 items-center justify-center"
+          >
             <motion.div
               className="absolute inset-0 rounded-full border-2 border-dashed border-brand/30"
               animate={{ rotate: 360 }}
