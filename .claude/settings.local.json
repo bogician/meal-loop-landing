@@ -110,7 +110,31 @@
       "Bash(xmllint --xpath '//*[local-name\\(\\)=\"path\"]/@d' src/app/icon.svg)",
       "Bash(xmllint --xpath '//*[local-name\\(\\)=\"path\"]/@d' public/brand/brand-mark.svg)",
       "Bash(shasum src/app/favicon.ico /tmp/head_favicon.ico)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(sed -n '250,296p' docs/planning-artifacts/architecture.md)",
+      "Bash(sed -n '340,352p' docs/planning-artifacts/architecture.md)",
+      "Bash(sed -n '680,690p' docs/planning-artifacts/architecture.md)",
+      "Bash(sed -n '1,60p' messages/en.json)",
+      "Bash(sed -n '1,60p' messages/uk.json)",
+      "Bash(sed -n '50,95p' src/app/globals.css)",
+      "Bash(sed -n '120,135p' src/app/globals.css)",
+      "Bash(rsvg-convert --version)",
+      "Read(//Users/bogdanbakhmetyev/Library/Fonts/**)",
+      "Bash(fc-list)",
+      "Bash(rsvg-convert -w 1200 -h 630 og-en.svg -o og-en.png)",
+      "Bash(rsvg-convert -w 1200 -h 630 og-uk.svg -o og-uk.png)",
+      "Bash(awk '{print $9, $5\" bytes\"}')",
+      "Bash(magick og-en.png -crop 1200x180+0+90 +repage txt:)",
+      "Bash(awk '{print \"EN green-ish pixels in mark band:\", $1}')",
+      "Bash(magick og-en.png -crop 1200x90+0+288 +repage -threshold 60% -negate -format \"EN wordmark bbox: %@ \\(page 1200x90\\)\\\\n\" info:)",
+      "Bash(magick og-uk.png -crop 1200x90+0+288 +repage -threshold 60% -negate -format \"UK wordmark bbox: %@\\\\n\" info:)",
+      "Bash(magick og-en.png -crop 1200x100+0+410 +repage -threshold 60% -negate -format \"EN tagline bbox: %@\\\\n\" info:)",
+      "Bash(magick og-uk.png -crop 1200x100+0+410 +repage -threshold 60% -negate -format \"UK tagline bbox: %@\\\\n\" info:)",
+      "Bash(magick og-__TRACKED_VAR__.png -background '#f5f4f1' -flatten -strip og-__TRACKED_VAR__.png)",
+      "Bash(magick og-__TRACKED_VAR__.png -background '#f5f4f1' -flatten -alpha off -strip PNG24:og-__TRACKED_VAR__.png)",
+      "Bash(cd *)",
+      "Bash(echo \"TSC_EXIT=$?\")",
+      "Bash(echo \"ESLINT_EXIT=$?\")"
     ]
   }
 }
