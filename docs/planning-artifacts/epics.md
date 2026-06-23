@@ -68,7 +68,7 @@ This document provides the complete epic and story breakdown for MealLoop Market
 - **NFR-6: Deployment** — Vercel via GitHub auto-deploy on push to `main` (`github.com/bogician/meal-loop-landing`); v2 must not break the existing deploy pipeline.
 - **NFR-7: SEO hygiene** — one `<h1>` per page, valid structured data, no duplicate-content signals across locales (canonical + hreflang correct).
 - **NFR-8: Voice & tone (both languages)** — per the locked microcopy-voice rules the PRD references as **UX-DR18**: no exclamation marks; no emojis; complete sentences; never blame the user; calm and understated. Governs English source, Ukrainian translation, Coming-soon, and consent/legal copy. (See UX-DR-18.)
-- **NFR-9: Visual brand** — forest-green (light `#2E7D4F` after AA fix), terracotta `#D89575`, mint `#C8F0D8`, paper `#F5F4F1`; Outfit type scale; light-first with OS-driven dark tokens. v2 extends, never diverges from, the locked system in `globals.css`.
+- **NFR-9: Visual brand** — forest-green (light `#2E7D4F` after AA fix), terracotta `#D89575`, mint `#C8F0D8`, paper `#F5F4F1`; Manrope type scale (replaced Outfit in Story 1.4 for Cyrillic coverage); light-first with OS-driven dark tokens. v2 extends, never diverges from, the locked system in `globals.css`.
 - **NFR-10: Privacy & compliance** — cookieless analytics by default; no PII capture (no email/waitlist); GDPR/ePrivacy posture for the EU + Ukrainian audience; consent clear, revocable, documented in the Cookie Policy.
 
 ### Additional Requirements
@@ -98,8 +98,8 @@ _Actionable design/behavioral work items from DESIGN.md, EXPERIENCE.md, and revi
 
 **Design tokens & typography**
 - **UX-DR-1: Light brand-green AA fix** — update `globals.css` light `--brand` and `--ring` from `#3D8A5A` to `#2E7D4F` (white-on-green ~5.1:1, green-on-paper/card ~4.6:1) and flag the iOS `DESIGN.md` token owner to adopt the same value (do not fork). Resolves accessibility blockers B1 + B2.
-- **UX-DR-2: Marketing type ramp** — implement the Outfit type-scale roles with the specified fluid sizes: `display` (hero h1, clamp 36→56px), `heading` (h2, 28→40px), `subheading` (20px), `lead` (18→22px), `body` (16px floor mobile, 1.6 lh), `label` (15px/500), `caption` (14px in muted-foreground).
-- **UX-DR-3: Cyrillic font subset (load-bearing)** — add the `cyrillic` subset to the Outfit `next/font` config (or a vetted Cyrillic-complete fallback in the stack); without it `/uk` falls back to a system font on the exact surface UJ-1 lands on.
+- **UX-DR-2: Marketing type ramp** — implement the Manrope type-scale roles with the specified fluid sizes: `display` (hero h1, clamp 36→56px), `heading` (h2, 28→40px), `subheading` (20px), `lead` (18→22px), `body` (16px floor mobile, 1.6 lh), `label` (15px/500), `caption` (14px in muted-foreground). _(Brand font is Manrope, not the originally-spec'd Outfit — see UX-DR-3 / Story 1.4.)_
+- **UX-DR-3: Cyrillic font subset (load-bearing; resolved in Story 1.4)** — the brand font is **Manrope**, loaded with `subsets: ["latin", "cyrillic"]`; Manrope's variable font covers Ukrainian Cyrillic, so `/uk` renders in-brand. _The original spec named Outfit, which ships no Cyrillic subset (`next/font` rejects `"cyrillic"` for Outfit); this halted Story 1.4 and was resolved by swapping site-wide to Manrope per Bogdan's approval._
 - **UX-DR-4: Section rhythm tokens** — `section-y-mobile` 64px / `section-y` 96px (md+), `gutter` 20px (mobile) → centered container at md+, `content-max` 1152px, `prose-max` 672px for legal/reading copy.
 
 **Component specs**
@@ -153,7 +153,7 @@ _Actionable design/behavioral work items from DESIGN.md, EXPERIENCE.md, and revi
 ## Epic List
 
 ### Epic 1: Bilingual Foundation
-A visitor lands on the site and reads it in their language — Ukrainian or English — chosen automatically on first visit from `Accept-Language`, remembered on return, and switchable at any time, with every word served from translation catalogs. This establishes the localized `app/[locale]` route tree and `proxy.ts` that every other v2 capability renders inside (architecturally the spine — must be first), and folds in the cross-cutting setup it depends on: the net-new dependencies, single-sourced `SITE_ORIGIN`/`metadataBase`, the `#2E7D4F` light brand-green AA fix, and the Outfit Cyrillic subset.
+A visitor lands on the site and reads it in their language — Ukrainian or English — chosen automatically on first visit from `Accept-Language`, remembered on return, and switchable at any time, with every word served from translation catalogs. This establishes the localized `app/[locale]` route tree and `proxy.ts` that every other v2 capability renders inside (architecturally the spine — must be first), and folds in the cross-cutting setup it depends on: the net-new dependencies, single-sourced `SITE_ORIGIN`/`metadataBase`, the `#2E7D4F` light brand-green AA fix, and the brand-font Cyrillic subset (Manrope's `latin+cyrillic` — swapped from the originally-spec'd Outfit in Story 1.4).
 **FRs covered:** FR-1, FR-2, FR-3, FR-4, FR-5
 
 ### Epic 2: Brand Identity & Assets
@@ -286,9 +286,9 @@ So that the site reads as first-class Ukrainian, not a machine afterthought.
 **When** any section renders,
 **Then** there is no English leakage; a missing `uk` string falls back to the `en` value at string granularity — never an empty render or a raw key (FR-4).
 
-**Given** the Outfit font,
+**Given** the brand font (**Manrope** — swapped from Outfit during this story; Outfit ships no Cyrillic subset),
 **When** it is loaded,
-**Then** the `cyrillic` subset is included (or a vetted Cyrillic-complete fallback in the stack), so `/uk` renders Cyrillic in the brand font (UX-DR-3).
+**Then** the `cyrillic` subset is included (`subsets: ["latin", "cyrillic"]`), so `/uk` renders Cyrillic in the brand font (UX-DR-3).
 
 **Given** Ukrainian copy,
 **When** it is reviewed,
@@ -568,7 +568,7 @@ So that I can operate and read the page without strain or mis-taps.
 
 **Given** body and heading text on mobile,
 **When** rendered,
-**Then** body text is ≥16px (no iOS tap-to-zoom) and the Outfit type-ramp roles (display/heading/subheading/lead/body/label/caption) are applied at the specified sizes (FR-17, UX-DR-2).
+**Then** body text is ≥16px (no iOS tap-to-zoom) and the Manrope type-ramp roles (display/heading/subheading/lead/body/label/caption) are applied at the specified sizes (FR-17, UX-DR-2).
 
 **Given** any focusable element,
 **When** focused,

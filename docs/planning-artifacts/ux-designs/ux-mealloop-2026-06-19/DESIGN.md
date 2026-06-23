@@ -40,43 +40,43 @@ colors:
   border-dark: '#34312E'
   ring-dark: '#4FAA70'
 typography:
-  # One family — Outfit (geometric sans) — loaded via --font-sans. Heading == sans.
+  # One family — Manrope (variable geometric sans) — loaded via --font-sans. Heading == sans.
   # [ASSUMPTION] Marketing ramp below; mobile-first sizes, fluid up at md+.
-  # NOTE: Outfit must add the `cyrillic` subset for the /uk locale (see Typography).
+  # NOTE: Manrope loads latin+cyrillic subsets — covers /uk Cyrillic (see Typography).
   display:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: 'clamp(2.25rem, 6vw, 3.5rem)'  # hero h1, 36→56px
     fontWeight: '600'
     lineHeight: '1.05'
     letterSpacing: '-0.02em'
   heading:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: 'clamp(1.75rem, 4vw, 2.5rem)'  # section h2, 28→40px
     fontWeight: '600'
     lineHeight: '1.1'
     letterSpacing: '-0.015em'
   subheading:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: '1.25rem'   # h3 / feature titles, 20px
     fontWeight: '600'
     lineHeight: '1.3'
   body:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: '1rem'      # 16px floor on mobile — avoids iOS tap-to-zoom
     fontWeight: '400'
     lineHeight: '1.6'
   lead:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)'  # hero subcopy, 18→22px
     fontWeight: '400'
     lineHeight: '1.5'
   label:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: '0.9375rem' # nav links, buttons, locale toggle, 15px
     fontWeight: '500'
     letterSpacing: '0'
   caption:
-    fontFamily: 'Outfit'
+    fontFamily: 'Manrope'
     fontSize: '0.875rem'  # coming-soon caption, legal meta, footnotes, 14px
     fontWeight: '400'
     lineHeight: '1.5'
@@ -156,7 +156,7 @@ Avoid: gradients as decoration, a second saturated CTA color, terracotta-on-gree
 
 ## Typography
 
-One family: **Outfit**, a geometric sans, loaded through `--font-sans` (heading and body share it). The marketing ramp leans on weight and size for hierarchy, not on a second family. Headings are `600`; body is `400`; the only "display" moment is the hero `display` role.
+One family: **Manrope**, a variable geometric sans, loaded through `--font-sans` (heading and body share it). The marketing ramp leans on weight and size for hierarchy, not on a second family. Headings are `600`; body is `400`; the only "display" moment is the hero `display` role.
 
 - `display` — hero `<h1>` only, fluid 36→56px, tight tracking. One per page.
 - `heading` — section `<h2>` (How it works, Features, The loop, screenshots, CTA), fluid 28→40px.
@@ -166,7 +166,7 @@ One family: **Outfit**, a geometric sans, loaded through `--font-sans` (heading 
 - `label` — nav links, buttons, locale toggle, 15px / weight 500.
 - `caption` — coming-soon line, legal meta, footnotes, 14px in `muted-foreground`.
 
-**Cyrillic requirement (load-bearing).** Outfit is currently loaded with `subsets: ["latin"]` only (`src/app/layout.tsx`). The `/uk` locale renders Ukrainian (Cyrillic) and **requires the `cyrillic` subset** added to the `Outfit()` config, or a vetted Cyrillic-covering fallback in the font stack. Without it, Ukrainian copy falls back to a system font and breaks brand consistency on the exact surface UJ-1 (Olena) lands on.
+**Cyrillic requirement (resolved).** The brand font is **Manrope**, loaded with `subsets: ["latin", "cyrillic"]` in `src/app/[locale]/layout.tsx`. Manrope's variable font covers Ukrainian Cyrillic, so `/uk` renders in-brand with no system-font fallback. _History:_ the original spec named **Outfit**, which ships **no** Cyrillic subset (`next/font` rejects `"cyrillic"` for Outfit) — this halted Story 1.4, resolved by swapping the brand font site-wide to Manrope per Bogdan's approval. See the Epic 1 retrospective and `deferred-work.md` (CP-1).
 
 ## Layout & Spacing
 
@@ -205,5 +205,5 @@ Visual references (token-pinned, illustrative — spine wins on conflict): [`moc
 | Use terracotta + mint sparingly, as warmth/highlight | Use accent colors for chrome, borders, or state badges |
 | Keep `display` to one hero `<h1>` per page | Set decorative headings in `display` "to fill space" |
 | Hold the 16px body floor and 320px no-overflow rule | Let mobile body drop below 16px or sections overflow at 320px |
-| Add Outfit's `cyrillic` subset before shipping `/uk` | Ship Ukrainian copy on a latin-only font load |
+| Keep Manrope's latin+cyrillic subsets loaded so `/uk` renders in-brand | Ship Ukrainian copy on a latin-only font load (the original Outfit plan — Outfit has no Cyrillic) |
 | Verify AA in light **and** OS-driven dark on real phones | Treat dark mode as untested because there's no toggle |

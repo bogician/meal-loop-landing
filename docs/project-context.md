@@ -37,6 +37,7 @@ _This file contains critical rules and patterns that AI agents must follow when 
 
 ### Styling & Tokens (Tailwind v4 + Base UI)
 - **Never hardcode hex.** Use tokens from `globals.css` `@theme`: `bg-brand`, `text-brand-foreground`, `bg-warm`, `bg-mint`, `bg-paper`, plus shadcn tokens (`bg-primary`, `text-muted-foreground`, `border-border`, `ring-ring`). `--brand` and `--primary` are the same forest green.
+  - **Exception — baked static assets embed literal hex (NOT a violation).** This rule governs **components and `globals.css`**. Assets that render *outside the DOM* — `app/icon.svg`, `app/favicon.ico`, the `opengraph-image` PNGs — cannot read CSS custom properties (`currentColor` → black for a crawler/OS), so they **must** bake the **light** literals: brand green `#2E7D4F`, paper `#f5f4f1`, ink `#1a1918`. Never the dark tokens (`#4faa70`); these assets don't theme-switch. (Established in Stories 2.2/2.3.)
 - **No JS Tailwind config.** Extend tokens in `globals.css` `@theme inline`; never reintroduce `tailwind.config.js` (`components.json` sets `tailwind.config: ""`).
 - **Merge classes with `cn()`** from `@/lib/utils` (`twMerge(clsx(...))`).
 - **shadcn primitives import from `@base-ui/react/*`** (e.g. `@base-ui/react/button`), prop types like `ButtonPrimitive.Props`. Do **not** import `@radix-ui/*`. Variants via `cva` (see `ui/button.tsx`).
@@ -57,7 +58,7 @@ _This file contains critical rules and patterns that AI agents must follow when 
 
 ### Known v1→v2 Gaps (don't mistake for finished)
 - `APP_STORE_URL = "#"` → CTAs in `nav.tsx` / `app-store-button.tsx` are currently dead `#` links (v2 adds Coming-soon).
-- `layout.tsx`: Outfit is `subsets: ["latin"]` only (v2 adds `cyrillic`); `<html lang="en">` hardcoded (v2 → per-locale); inline metadata, **no `metadataBase`** (v2 single-sources `SITE_ORIGIN`).
+- ~~`layout.tsx`: Outfit `subsets:["latin"]` only; `<html lang="en">` hardcoded; no `metadataBase`.~~ **Resolved in Epic 1:** the root layout is `app/[locale]/layout.tsx` with **Manrope** `subsets:["latin","cyrillic"]` (Outfit was swapped out in Story 1.4 — it ships no Cyrillic subset), per-locale `<html lang>`, and `metadataBase` single-sourced from `SITE_ORIGIN`. **The brand font is Manrope, not Outfit — trust the code over any planning doc that still says Outfit.**
 - Light `--brand`/`--primary`/`--ring` = `#3d8a5a`; the v2 AA fix to `#2E7D4F` is **not yet applied**.
 - Nav links hidden under `md` with **no mobile menu**; `LoopMark`/`Logo` is a placeholder.
 - No i18n yet (no `next-intl`, `proxy.ts`, `app/[locale]`, or `messages/`).
@@ -77,4 +78,4 @@ _This file contains critical rules and patterns that AI agents must follow when 
 - Keep this file lean and focused on agent needs.
 - Update when the technology stack or conventions change; retire the "Known v1→v2 Gaps" entries as each is resolved.
 
-Last Updated: 2026-06-19
+Last Updated: 2026-06-23 (CP-1: Outfit→Manrope reconciliation; baked-asset hex note)

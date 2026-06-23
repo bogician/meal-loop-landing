@@ -61,7 +61,7 @@ The product's character is restraint. The voice is calm and understated — it "
 - **Locale switcher** — the nav control that lets a visitor change Locale and persists the choice.
 - **App Store CTA** — the primary (and only) call to action: the App Store badge, wired to the single `APP_STORE_URL` constant.
 - **Coming-soon state** — the App Store CTA's behavior while the listing is not live (`APP_STORE_URL` is the placeholder): a calm, non-broken affordance rather than a dead link.
-- **Brand mark** — the MealLoop logo symbol, sourced from the iOS app (`brand-logo.svg`); distinct from the **Wordmark** (the "MealLoop" name set in Outfit).
+- **Brand mark** — the MealLoop logo symbol, sourced from the iOS app (`brand-logo.svg`); distinct from the **Wordmark** (the "MealLoop" name set in Manrope, the brand font — Outfit was the original spec, swapped in Story 1.4).
 - **OG image** — the Open Graph / social-share preview image referenced by metadata; one of the brand assets v2 must produce.
 - **Structured data** — JSON-LD markup describing the product to search engines (Organization / SoftwareApplication / MobileApplication).
 - **hreflang** — the metadata signaling each page's Locale alternates (plus `x-default`) to search engines.
@@ -365,7 +365,7 @@ While `APP_STORE_LIVE` is false, the CTA renders a calm Coming-soon affordance (
 ## 11. Aesthetic, Tone & Brand Constraints
 
 - **Voice (both languages), per `../MealLoop/docs/microcopy-voice.md` UX-DR18:** no exclamation marks; no emojis in copy; complete sentences; never blame the user; calm and understated — "sells less." This governs English source copy, Ukrainian translation, the Coming-soon state, and the consent/legal copy.
-- **Visual brand, per the iOS app `DESIGN.md` (already reflected in `globals.css`):** forest-green `#3D8A5A`, terracotta `#D89575`, mint `#C8F0D8`, paper `#F5F4F1`; Outfit type scale; light-first with dark tokens defined. v2 extends, never diverges from, this system.
+- **Visual brand, per the iOS app `DESIGN.md` (already reflected in `globals.css`):** forest-green `#3D8A5A` (web darkened to `#2E7D4F` for AA), terracotta `#D89575`, mint `#C8F0D8`, paper `#F5F4F1`; Manrope type scale (the iOS app spec'd Outfit; the web swapped to Manrope in Story 1.4 for Cyrillic coverage); light-first with dark tokens defined. v2 extends, never diverges from, this system.
 
 ## 12. Constraints & Guardrails — Privacy & Compliance
 

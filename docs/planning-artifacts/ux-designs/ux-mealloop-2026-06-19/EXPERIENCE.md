@@ -154,7 +154,7 @@ The product is iOS; the site is web. No Android assets, no PWA/offline scope.
 
 ## Inspiration & Anti-patterns
 
-- **Lifted from the iOS app:** the entire visual system — palette, Outfit, radius, restraint. The site *extends, never diverges from*, the app's `DESIGN.md`. This is a deliberate posture (pixel-aligned brand), not a shortcut.
+- **Lifted from the iOS app:** the entire visual system — palette, type ramp (rendered in **Manrope**; the app's `DESIGN.md` named Outfit, swapped site-wide in Story 1.4 for Cyrillic coverage), radius, restraint. The site *extends, never diverges from*, the app's `DESIGN.md`. This is a deliberate posture (pixel-aligned brand), not a shortcut.
 - **Lifted from shadcn:** the component vocabulary. The brand is *what we add to shadcn*, not a from-scratch system.
 - **Rejected — Cookie wall / consent gate.** Consent is offered, never forced; the banner cannot block content or scroll. A wall would contradict the "trustworthy, sells less" posture (SM-C2).
 - **Rejected — Email capture / waitlist.** Out of scope. The Coming-soon state is honest stasis, not a lead-gen form.

@@ -223,8 +223,10 @@ locale redirect; the only outbound traffic is the Vercel Analytics/Speed Insight
   navigation and the locale switcher use next-intl's locale-aware `Link`/`useRouter`
   (`@/i18n/navigation`), never raw string swaps. Identical legal slugs mean no `pathnames`
   map is required.
-- **Typography/perf:** add the **`cyrillic` subset** to the Outfit `next/font` config
-  (load-bearing for `/uk`, per DESIGN.md); preserve the 16px mobile body floor and the
+- **Typography/perf:** the brand font is **Manrope**, loaded with `subsets: ["latin",
+  "cyrillic"]` via `next/font` (covers `/uk` Cyrillic, per DESIGN.md). _The original spec
+  named Outfit, which ships no Cyrillic subset; swapped to Manrope in Story 1.4 — see
+  Epic 1 retro / `deferred-work.md` CP-1._ Preserve the 16px mobile body floor and the
   320px no-overflow rule.
 
 ### Internationalization & Routing (the spine)
@@ -294,7 +296,7 @@ locale redirect; the only outbound traffic is the Vercel Analytics/Speed Insight
 - Favicons, OG image, and the JSON-LD logo ← the brand-asset lock (critical path).
 - FR-19 events ← Vercel Pro **and** posture-only consent (so events fire for all visitors).
 - Locale switcher correctness ← identical legal slugs (no `pathnames` map needed).
-- `/uk` brand fidelity ← Outfit `cyrillic` subset (load-bearing).
+- `/uk` brand fidelity ← Manrope `cyrillic` subset (load-bearing; Manrope replaced Outfit in Story 1.4).
 - Static prerender of `/en`,`/uk` ← cookie/header reads confined to `proxy.ts`.
 
 ## Implementation Patterns & Consistency Rules
@@ -466,7 +468,7 @@ mealloop-web/
     │   └── request.ts               #      getRequestConfig: load messages + en fallback (FR-4)
     ├── app/
     │   ├── globals.css              # MOD  light --brand/--ring → #2E7D4F (AA fix, B1/B2)
-    │   ├── layout.tsx               # MOD  root: Outfit w/ latin+cyrillic subsets, metadataBase
+    │   ├── layout.tsx               # MOD  root: Manrope w/ latin+cyrillic subsets, metadataBase
     │   │                            #      from SITE_ORIGIN, <Analytics/>+<SpeedInsights/> (FR-18)
     │   ├── icon.svg                 # NEW  favicon (file-convention) (FR-13)
     │   ├── apple-icon.png           # NEW  Apple touch icon from AppIcon.png (FR-13)
@@ -561,7 +563,7 @@ mealloop-web/
 - **Accessibility** → enforced in `mobile-menu.tsx`, `locale-switcher.tsx`,
   `app-store-button.tsx`, and the section heading structure (one `<h1>`).
 - **Performance/CWV** → the static-render boundary + `analytics.tsx` (Speed Insights);
-  Outfit font config in root `layout.tsx`.
+  Manrope font config in root `layout.tsx`.
 - **Single-sourced config** → `src/lib/site.ts`.
 
 ### Integration Points
@@ -634,7 +636,7 @@ islands. Structure supports the patterns without strain.
 - **Conversion FR-23–24:** `app-store-button.tsx`, `site.ts` (`APP_STORE_URL`/`APP_STORE_LIVE`). ✅
 
 **Non-Functional Requirements Coverage:**
-- **Performance/CWV (§10):** static prerender + isolated islands + Outfit font config;
+- **Performance/CWV (§10):** static prerender + isolated islands + Manrope font config;
   measured in the field via Speed Insights. ✅ (no Lighthouse CI by the lean-gate decision —
   CWV is monitored, not blocked in CI)
 - **Accessibility (WCAG 2.1 AA):** contract codified in patterns; light-green AA fix
