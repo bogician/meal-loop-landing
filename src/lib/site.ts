@@ -14,11 +14,31 @@ export const LOCALE_LABELS: Record<(typeof LOCALES)[number], string> = {
   uk: "УК",
 };
 
-// Canonical absolute origin, single-sourced for metadataBase (and later
-// sitemap/robots/OG in Epic 3). Overridable via env on Vercel previews; falls
-// back to the production domain. No other module should hardcode an origin.
-export const SITE_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://meal-loop.com";
+// Canonical absolute origin (scheme + host [+ port]), single-sourced for
+// metadataBase, canonical/hreflang, the sitemap, and robots. Overridable via
+// NEXT_PUBLIC_SITE_ORIGIN on Vercel previews; falls back to the production
+// domain. No other module should hardcode an origin.
+//
+// Resolved through the URL parser and normalized once here so every consumer
+// inherits a well-formed origin. Any misconfigured env — empty, whitespace-only,
+// missing scheme, protocol-relative ("//host"), trailing slash, or path/query/
+// hash-bearing — collapses to the true origin (no trailing slash or path) or, when
+// unparseable or a non-http(s) scheme, to the production default. This prevents an
+// origin-less "/en" (localeUrl) or a double-slash "origin//sitemap.xml" (robots).
+const PRODUCTION_ORIGIN = "https://meal-loop.com";
+
+function resolveOrigin(raw: string | undefined): string {
+  try {
+    const { origin, protocol } = new URL(raw ?? "");
+    return protocol === "https:" || protocol === "http:"
+      ? origin
+      : PRODUCTION_ORIGIN;
+  } catch {
+    return PRODUCTION_ORIGIN;
+  }
+}
+
+export const SITE_ORIGIN = resolveOrigin(process.env.NEXT_PUBLIC_SITE_ORIGIN);
 
 // Absolute per-locale URL, single-sourced for canonical/hreflang (Story 3.2)
 // and the sitemap/robots (Story 3.3). localePrefix is "always", so every
