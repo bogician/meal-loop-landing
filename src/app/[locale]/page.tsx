@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { DEFAULT_LOCALE, localeUrl } from "@/lib/site";
+import { DEFAULT_LOCALE, localeUrl, SITE } from "@/lib/site";
 import { buildStructuredData } from "@/lib/structured-data";
 import { Nav } from "@/components/sections/nav";
 import { Hero } from "@/components/sections/hero";
@@ -34,6 +34,23 @@ export async function generateMetadata({
         uk: localeUrl("uk"),
         "x-default": localeUrl(DEFAULT_LOCALE),
       },
+    },
+    openGraph: {
+      type: "website",
+      siteName: SITE.name,
+      url: localeUrl(locale),
+      title: t("title"),
+      description: t("description"),
+      // No `images`: the Story 2.3 opengraph-image route supplies the
+      // per-locale og:image via mergeStaticMetadata, which only merges the
+      // file-convention image when this block omits `images`.
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      // No `images`: twitter:image is derived from the opengraph-image route
+      // for the same reason — omitting it keeps the URL single-sourced.
     },
   };
 }
